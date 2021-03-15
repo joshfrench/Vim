@@ -18,6 +18,7 @@ import { parseMarksCommandArgs } from './subparsers/marks';
 import { parsePutExCommandArgs } from './subparsers/put';
 import { CommandBase } from './node';
 import { parseHistoryCommandArgs } from './subparsers/history';
+import { CcloseCommand, CopenCommand } from './commands/quickfix';
 import { NohlCommand } from './commands/nohl';
 import { OnlyCommand } from './commands/only';
 import { SmileCommand } from './commands/smile';
@@ -88,6 +89,11 @@ export const commandParsers = {
     parser: undefined,
   },
 
+  cclose: {
+    abbrev: 'ccl',
+    parser: () => new CcloseCommand(),
+  },
+
   center: {
     abbrev: 'ce',
     parser: undefined,
@@ -101,6 +107,11 @@ export const commandParsers = {
   close: {
     abbrev: 'clo',
     parser: parseCloseCommandArgs,
+  },
+
+  copen: {
+    abbrev: 'cope',
+    parser: () => new CopenCommand(),
   },
 
   copy: {
